@@ -1,0 +1,23 @@
+.gradle/
+build/
+
+#misc files
+
+#local settings
+local.properties
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
