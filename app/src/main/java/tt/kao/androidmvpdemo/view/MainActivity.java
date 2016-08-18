@@ -1,14 +1,14 @@
-package tt.kao.androidmvpdemo;
+package tt.kao.androidmvpdemo.view;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import tt.kao.androidmvpdemo.R;
+import tt.kao.androidmvpdemo.ViewEvent;
 import tt.kao.androidmvpdemo.presenter.MainPresenter;
-import tt.kao.androidmvpdemo.view.UpdateView;
-import tt.kao.androidmvpdemo.view.UpdateViewEvent;
 
-public class MainActivity extends AppCompatActivity implements UpdateView {
+public class MainActivity extends AppCompatActivity implements BaseView {
     private MainPresenter mPresenter;
 
     @Override
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements UpdateView {
     }
 
     @Override
-    public void update(UpdateViewEvent event, Object data) {
+    public void handleEvent(ViewEvent event, Object data) {
         switch (event) {
 
         }

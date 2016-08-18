@@ -4,30 +4,33 @@ import android.content.Context;
 
 import java.lang.ref.WeakReference;
 
-import tt.kao.androidmvpdemo.view.UpdateView;
-import tt.kao.androidmvpdemo.view.UpdateViewEvent;
+import tt.kao.androidmvpdemo.PresenterEvent;
+import tt.kao.androidmvpdemo.ViewEvent;
+import tt.kao.androidmvpdemo.mvp.MvpPresenter;
+import tt.kao.androidmvpdemo.mvp.MvpView;
+import tt.kao.androidmvpdemo.view.BaseView;
 
 /**
  * @author Silvius
  */
-public abstract class BasePresenter implements UpdatePresenter {
-    private WeakReference<UpdateView> mWeakUpdateUi;
+public abstract class BasePresenter implements MvpPresenter<PresenterEvent> {
+    private WeakReference<BaseView> mWeakCallbackView;
 
-    protected BasePresenter(UpdateView ui) {
-        mWeakUpdateUi = new WeakReference<>(ui);
+    protected BasePresenter(BaseView callbackView) {
+        mWeakCallbackView = new WeakReference<>(callbackView);
     }
 
     protected Context getContext() {
-        UpdateView ui = mWeakUpdateUi.get();
+        MvpView view = mWeakCallbackView.get();
 
-        return ui == null ? null : ui.getContext();
+        return view == null ? null : view.getContext();
     }
 
-    protected void updateView(UpdateViewEvent reason, Object data) {
-        UpdateView ui = mWeakUpdateUi.get();
+    protected void updateView(ViewEvent event, Object data) {
+        BaseView view = mWeakCallbackView.get();
 
-        if (ui != null) {
-            ui.update(reason, data);
+        if (view != null) {
+            view.handleEvent(event, data);
         }
     }
 }

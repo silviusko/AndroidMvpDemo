@@ -1,18 +1,19 @@
 package tt.kao.androidmvpdemo.presenter;
 
-import tt.kao.androidmvpdemo.view.UpdateView;
+import tt.kao.androidmvpdemo.PresenterEvent;
+import tt.kao.androidmvpdemo.view.BaseView;
 
 /**
  * @author Silvius
  */
 public class MainPresenter extends BasePresenter {
-    public MainPresenter(UpdateView ui) {
-        super(ui);
+    public MainPresenter(BaseView view) {
+        super(view);
     }
 
     @Override
-    public void update(UpdatePresenterReason reason, Object data) {
-        switch (reason) {
+    public void handleEvent(PresenterEvent event, Object data) {
+        switch (event) {
 
         }
     }
