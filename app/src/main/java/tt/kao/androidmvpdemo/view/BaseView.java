@@ -1,6 +1,6 @@
 package tt.kao.androidmvpdemo.view;
 
-import tt.kao.androidmvpdemo.ViewEvent;
+import tt.kao.androidmvpdemo.event.ViewEvent;
 import tt.kao.androidmvpdemo.mvp.MvpView;
 
 /**
